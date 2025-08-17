@@ -105,10 +105,10 @@ export default function Home() {
           <div>
             <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">Albany, NY studio by appointment</h2>
             <p className="mt-3 text-foreground/80 max-w-prose">
-              We currently operate in Manhattan with flexible booking windows, and offer on‑site pop‑ups for larger teams upon request.
+              We currently operate in Albany, NY with flexible booking windows, and offer on‑site pop‑ups for larger teams upon request.
             </p>
             <ul className="mt-4 space-y-2 text-foreground/75 text-sm">
-              <li>• Manhattan studio</li>
+              <li>• Albany studio</li>
               <li>• On‑site pop‑ups in the boroughs and nearby metro</li>
               <li>• Evening and weekend availability</li>
             </ul>

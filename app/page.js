@@ -1,5 +1,6 @@
-
+import Image from "next/image";
 import CalendlyEmbed from "./components/CalendlyEmbed";
+
 
 export default function Home() {
   return (
@@ -33,7 +34,9 @@ export default function Home() {
             </div>
           </div>
           <div className="md:col-span-5">
-            <div className="aspect-[4/3] w-full rounded-2xl bg-[radial-gradient(circle_at_30%_20%,rgba(37,99,235,.35),transparent_60%),radial-gradient(circle_at_70%_80%,rgba(59,130,246,.25),transparent_50%)] border border-black/[0.06] dark:border-white/[0.12] shadow-[0_10px_40px_rgba(0,0,0,.08)]"></div>
+            <div className="aspect-[4/3] w-full rounded-2xl border border-black/[0.06] dark:border-white/[0.12] shadow-[0_10px_40px_rgba(0,0,0,.08)] bg-slate-900 flex items-center justify-center p-6">
+              <Image src="/WalkThru_logo_white_no_tagline.png" alt="WalkThruNY" width={540} height={200} className="w-full h-auto max-w-[480px]" priority />
+            </div>
           </div>
         </div>
       </section>

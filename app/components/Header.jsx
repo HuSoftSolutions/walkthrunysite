@@ -1,15 +1,33 @@
 "use client";
 
-import { useState } from "react";
+import Image from "next/image";
+import { useEffect, useState } from "react";
 
 export default function Header() {
   const [open, setOpen] = useState(false);
+  const [theme, setTheme] = useState("light");
+
+  useEffect(() => {
+    const stored = typeof window !== "undefined" ? localStorage.getItem("theme") : null;
+    const systemDark = typeof window !== "undefined" && window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches;
+    const initial = stored || (systemDark ? "dark" : "light");
+    setTheme(initial);
+    if (typeof document !== "undefined") document.documentElement.setAttribute("data-theme", initial);
+  }, []);
+
+  const toggleTheme = () => {
+    const next = theme === "dark" ? "light" : "dark";
+    setTheme(next);
+    if (typeof document !== "undefined") document.documentElement.setAttribute("data-theme", next);
+    if (typeof localStorage !== "undefined") localStorage.setItem("theme", next);
+  };
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur bg-background/70 border-b border-black/[0.06] dark:border-white/[0.12]">
+    <header className="sticky top-0 z-50 bg-slate-900/95 text-white border-b border-white/10 backdrop-blur">
       <nav className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 h-16 flex items-center justify-between">
-        <a href="/" className="text-lg font-semibold tracking-tight">
-          WalkThruNY
+        <a href="/" className="flex items-center gap-3">
+          <Image src="/WalkThru_logo_white_no_tagline.png" alt="WalkThruNY" className="h-7 w-auto select-none" width={120} height={28} priority />
+          <span className="sr-only">WalkThruNY</span>
         </a>
         <button
           className="md:hidden inline-flex items-center justify-center rounded-md p-2 border border-black/10 dark:border-white/20"
@@ -25,10 +43,21 @@ export default function Header() {
           </svg>
         </button>
         <div className="hidden md:flex items-center gap-6 text-sm">
-          <a href="#services" className="hover:opacity-80">Services</a>
-          <a href="#how-it-works" className="hover:opacity-80">How it works</a>
-          <a href="#locations" className="hover:opacity-80">Locations</a>
-          <a href="#contact" className="hover:opacity-80">Contact</a>
+          <a href="#services" className="hover:opacity-80 text-white/85">Services</a>
+          <a href="#how-it-works" className="hover:opacity-80 text-white/85">How it works</a>
+          <a href="#locations" className="hover:opacity-80 text-white/85">Locations</a>
+          <a href="#contact" className="hover:opacity-80 text-white/85">Contact</a>
+          <button
+            onClick={toggleTheme}
+            className="inline-flex items-center justify-center rounded-full border border-white/20 px-3 py-2 hover:bg-white/10"
+            aria-label="Toggle color theme"
+          >
+            {theme === "dark" ? (
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.93 4.93l1.41 1.41M17.66 17.66l1.41 1.41M2 12h2M20 12h2M4.93 19.07l1.41-1.41M17.66 6.34l1.41-1.41"/></svg>
+            ) : (
+              <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><path d="M21 12.79A9 9 0 1 1 11.21 3a7 7 0 0 0 9.79 9.79z"/></svg>
+            )}
+          </button>
           <a
             href="#contact"
             className="inline-flex items-center rounded-full bg-blue-600 px-4 py-2 text-white font-medium hover:bg-blue-500 transition-colors"
@@ -39,19 +68,27 @@ export default function Header() {
       </nav>
       {/* Mobile menu */}
       {open && (
-        <div className="md:hidden border-t border-black/[0.06] dark:border-white/[0.12] bg-background/95 backdrop-blur">
+        <div className="md:hidden border-t border-white/10 bg-slate-900/95 text-white">
           <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-4 grid gap-3 text-sm">
             <a href="#services" className="py-2" onClick={() => setOpen(false)}>Services</a>
             <a href="#how-it-works" className="py-2" onClick={() => setOpen(false)}>How it works</a>
             <a href="#locations" className="py-2" onClick={() => setOpen(false)}>Locations</a>
             <a href="#contact" className="py-2" onClick={() => setOpen(false)}>Contact</a>
-            <a
-              href="#contact"
-              className="mt-2 inline-flex items-center justify-center rounded-full bg-blue-600 px-4 py-2 text-white font-medium hover:bg-blue-500"
-              onClick={() => setOpen(false)}
-            >
-              Book a walkthrough
-            </a>
+            <div className="flex items-center gap-2">
+              <button
+                onClick={() => { toggleTheme(); setOpen(false); }}
+                className="inline-flex items-center justify-center rounded-full border border-white/20 px-3 py-2 hover:bg-white/10"
+              >
+                Toggle theme
+              </button>
+              <a
+                href="#contact"
+                className="inline-flex items-center justify-center rounded-full bg-blue-600 px-4 py-2 text-white font-medium hover:bg-blue-500"
+                onClick={() => setOpen(false)}
+              >
+                Book a walkthrough
+              </a>
+            </div>
           </div>
         </div>
       )}

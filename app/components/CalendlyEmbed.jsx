@@ -2,9 +2,9 @@
 
 import { useMemo } from "react";
 
-// Robust Calendly iframe embed to avoid external script loaders/overlays
-// Usage: <CalendlyEmbed url="https://calendly.com/your-handle/15min" />
-export default function CalendlyEmbed({ url, height = "100svh" }) {
+// Calendly inline iframe that scrolls with the page (avoid internal iframe scrolling)
+// Provide a generous default height so users scroll the page to view more/less of the scheduler.
+export default function CalendlyEmbed({ url, height = "clamp(1200px, 160svh, 2400px)" }) {
   const src = useMemo(() => {
     const domain = typeof window !== "undefined" ? window.location.hostname : "localhost";
     const sep = url.includes("?") ? "&" : "?";
@@ -16,9 +16,8 @@ export default function CalendlyEmbed({ url, height = "100svh" }) {
       title="Schedule with WalkThruNY"
       src={src}
       width="100%"
-      style={{ width: "100%", minWidth: "100%", height, minHeight: "100vh", border: 0 }}
+      style={{ width: "100%", minWidth: "100%", height, border: 0, display: "block" }}
       frameBorder="0"
     />
   );
 }
-

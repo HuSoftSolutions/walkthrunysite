@@ -48,7 +48,7 @@ export default function RootLayout({ children }) {
             <div className="md:text-right">
               <p>Albany, NY</p>
               <p>
-                <a className="underline hover:no-underline" href="mailto:hello@walkthruny.com">hello@walkthruny.com</a>
+                <a className="underline hover:no-underline" href="mailto:gabe@walkthruny.com">gabe@walkthruny.com</a>
               </p>
               <p className="mt-2 text-white/70">© {new Date().getFullYear()} WalkThruNY. All rights reserved.</p>
             </div>

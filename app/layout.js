@@ -1,4 +1,5 @@
 import { Geist_Mono, Inter, Space_Grotesk } from "next/font/google";
+import ComingSoon from "./components/ComingSoon";
 import Header from "./components/Header";
 import "./globals.css";
 
@@ -31,29 +32,40 @@ export const metadata = {
 };
 
 export default function RootLayout({ children }) {
+  const comingSoon = [
+    process.env.COMING_SOON,
+    process.env.NEXT_PUBLIC_COMING_SOON,
+  ].some((v) => v === "1" || v === "true");
+
   return (
     <html lang="en">
       <body className={`${inter.variable} ${spaceGrotesk.variable} ${geistMono.variable} antialiased`}>
-        <Header />
-        <main className="min-h-[calc(100vh-8rem)]">{children}</main>
-        <footer className="border-t bg-slate-900 text-white border-white/10">
-          <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 text-sm grid gap-4 md:grid-cols-2">
-            <div className="flex items-center gap-3">
-              <img src="/WalkThru_logo_white_no_tagline.png" alt="WalkThruNY" className="h-7 w-auto select-none" height="28" />
-              <div>
-                <p className="font-semibold">WalkThruNY</p>
-                <p className="mt-1 text-white/80">Walk your floor plans at 1:1 scale before you build.</p>
+        {comingSoon ? (
+          <ComingSoon />
+        ) : (
+          <>
+            <Header />
+            <main className="min-h-[calc(100vh-8rem)]">{children}</main>
+            <footer className="border-t bg-slate-900 text-white border-white/10">
+              <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 py-10 text-sm grid gap-4 md:grid-cols-2">
+                <div className="flex items-center gap-3">
+                  <img src="/WalkThru_logo_white_no_tagline.png" alt="WalkThruNY" className="h-7 w-auto select-none" height="28" />
+                  <div>
+                    <p className="font-semibold">WalkThruNY</p>
+                    <p className="mt-1 text-white/80">Walk your floor plans at 1:1 scale before you build.</p>
+                  </div>
+                </div>
+                <div className="md:text-right">
+                  <p>Albany, NY</p>
+                  <p>
+                    <a className="underline hover:no-underline" href="mailto:gabe@walkthruny.com">gabe@walkthruny.com</a>
+                  </p>
+                  <p className="mt-2 text-white/70">© {new Date().getFullYear()} WalkThruNY. All rights reserved.</p>
+                </div>
               </div>
-            </div>
-            <div className="md:text-right">
-              <p>Albany, NY</p>
-              <p>
-                <a className="underline hover:no-underline" href="mailto:gabe@walkthruny.com">gabe@walkthruny.com</a>
-              </p>
-              <p className="mt-2 text-white/70">© {new Date().getFullYear()} WalkThruNY. All rights reserved.</p>
-            </div>
-          </div>
-        </footer>
+            </footer>
+          </>
+        )}
       </body>
     </html>
   );

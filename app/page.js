@@ -66,7 +66,7 @@ export default function Home() {
       </section>
 
       {/* Value props */}
-      <section id="services" className="py-16 md:py-24">
+      <section id="services" className="py-16 md:py-24 scroll-mt-16">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-6 md:grid-cols-3">
             {[
@@ -96,7 +96,7 @@ export default function Home() {
       </section>
 
       {/* How it works */}
-      <section id="how-it-works" className="py-16 md:py-24 bg-slate-900 text-white">
+      <section id="how-it-works" className="py-16 md:py-24 scroll-mt-16 bg-slate-900 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-3xl sm:text-4xl font-semibold tracking-tight">How it works</h2>
           <div className="mt-10 grid gap-12 md:grid-cols-3">
@@ -130,7 +130,7 @@ export default function Home() {
 
 
       {/* Contact - Calendly embed (full-bleed) */}
-      <section id="contact" className="py-0">
+      <section id="contact" className="py-0 scroll-mt-16">
         <h2 className="sr-only">Get started</h2>
         <div className="w-full">
           <CalendlyEmbed url={process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/"} />

@@ -23,7 +23,7 @@ export default function ComingSoon() {
             className="inline-flex items-center rounded-full bg-blue-600 px-5 py-3 text-white font-medium hover:bg-blue-500"
             href="mailto:gabe@walkthruny.com"
           >
-            Contact us
+            Get started
           </a>
         </p>
       </div>

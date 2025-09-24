@@ -2,7 +2,31 @@ import Image from "next/image";
 import CalendlyEmbed from "./components/CalendlyEmbed";
 
 
+
 export default function Home() {
+  // Icons for How it works
+  const IconClipboard = (props) => (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="1.5" {...props}>
+      <rect x="6" y="5" width="12" height="15" rx="2" />
+      <rect x="9" y="3" width="6" height="4" rx="1" />
+      <path d="M9 11h6M9 14h6M9 17h4" strokeLinecap="round" />
+    </svg>
+  );
+
+  const IconFile = (props) => (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="1.5" {...props}>
+      <path d="M7 3h7l5 5v11a2 2 0 01-2 2H7a2 2 0 01-2-2V5a2 2 0 012-2z" />
+      <path d="M14 3v5h5" />
+    </svg>
+  );
+
+  const IconFloorPlan = (props) => (
+    <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" stroke="currentColor" strokeWidth="1.5" {...props}>
+      <rect x="3" y="3" width="18" height="18" rx="2" />
+      <path d="M3 12h8v9M11 3v6h10M14 12h7" strokeLinecap="round" strokeLinejoin="round" />
+    </svg>
+  );
+
   return (
     <div className="font-sans">
       {/* Hero */}
@@ -10,17 +34,17 @@ export default function Home() {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-16 md:pt-28 md:pb-20 grid gap-8 md:grid-cols-12 items-center">
           <div className="md:col-span-7">
             <h1 className="text-4xl/tight sm:text-5xl/tight md:text-6xl/tight font-semibold tracking-tight">
-              Walk your plans at full scale in Albany, NY
+              Experience your space at 1:1 scale
             </h1>
             <p className="mt-4 text-base sm:text-lg text-foreground/80 max-w-xl">
-              Experience your floor plan at 1:1 scale before construction begins. Validate room sizes, circulation, and sightlines so you can make confident decisions.
+              WalkThru brings your project to life from residential to commercial and anything inbetween.
             </p>
             <div className="mt-6 flex flex-col sm:flex-row gap-3">
               <a
                 href="#contact"
                 className="inline-flex items-center justify-center rounded-full bg-blue-600 px-5 py-3 text-white font-medium hover:bg-blue-500 transition-colors"
               >
-                Book a walkthrough
+                Get started
               </a>
               <a
                 href="#how-it-works"
@@ -72,65 +96,42 @@ export default function Home() {
       </section>
 
       {/* How it works */}
-      <section id="how-it-works" className="py-16 md:py-24 bg-foreground/[.03]">
+      <section id="how-it-works" className="py-16 md:py-24 bg-slate-900 text-white">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="grid gap-10 md:grid-cols-3">
-            {[
-              {
-                step: "01",
-                title: "Send your plans",
-                desc: "Provide PDF or CAD exports; we’ll prepare them for full‑scale projection.",
-              },
-              {
-                step: "02",
-                title: "Walk through",
-                desc: "Visit our Albany, NY studio to experience and iterate with your team in real time.",
-              },
-              {
-                step: "03",
-                title: "Leave with clarity",
-                desc: "Receive notes, photos, and revisions so you can move forward confidently.",
-              },
-            ].map((item) => (
-              <div key={item.step} className="relative p-6">
-                <span className="text-sm text-foreground/50">{item.step}</span>
-                <h3 className="mt-2 text-xl font-semibold">{item.title}</h3>
-                <p className="mt-2 text-foreground/75">{item.desc}</p>
-              </div>
-            ))}
+          <h2 className="text-center text-3xl sm:text-4xl font-semibold tracking-tight">How it works</h2>
+          <div className="mt-10 grid gap-12 md:grid-cols-3">
+            <div className="text-center">
+              <IconClipboard className="mx-auto h-16 w-16 md:h-20 md:w-20 text-white/90" aria-hidden="true" />
+              <h3 className="mt-5 text-xl font-semibold">Tell us about your project</h3>
+              <p className="mt-3 text-white/80 text-sm leading-relaxed">
+                Schedule a 15-30 minute discovery call so we can learn more about your project. Well understand your goals, process, and timeline to maximize efficiency.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <IconFile className="mx-auto h-16 w-16 md:h-20 md:w-20 text-white/90" aria-hidden="true" />
+              <h3 className="mt-5 text-xl font-semibold">Send Us Your Plans</h3>
+              <p className="mt-3 text-white/80 text-sm leading-relaxed">
+                Upload your blueprints and well prepare them for full-scale projection.
+              </p>
+            </div>
+
+            <div className="text-center">
+              <IconFloorPlan className="mx-auto h-16 w-16 md:h-20 md:w-20 text-white/90" aria-hidden="true" />
+              <h3 className="mt-5 text-xl font-semibold">WalkThru Your Design</h3>
+              <p className="mt-3 text-white/80 text-sm leading-relaxed">
+                Step inside your future space, explore every room, and make confident decisions before building.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
-      {/* Locations / CTA */}
-      <section id="locations" className="py-16 md:py-24">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 grid gap-6 md:grid-cols-2 items-center">
-          <div>
-            <h2 className="text-3xl sm:text-4xl font-semibold tracking-tight">Albany, NY studio by appointment</h2>
-            <p className="mt-3 text-foreground/80 max-w-prose">
-              We currently operate in Albany, NY with flexible booking windows, and offer on‑site pop‑ups for larger teams upon request.
-            </p>
-            <ul className="mt-4 space-y-2 text-foreground/75 text-sm">
-              <li>• Albany studio</li>
-              <li>• On‑site pop‑ups in the boroughs and nearby metro</li>
-              <li>• Evening and weekend availability</li>
-            </ul>
-            <a
-              href="#contact"
-              className="mt-6 inline-flex items-center rounded-full bg-blue-600 px-5 py-3 text-white font-medium hover:bg-blue-500"
-            >
-              Request availability
-            </a>
-          </div>
-          <div>
-            <div className="aspect-video w-full rounded-2xl bg-[radial-gradient(circle_at_70%_20%,rgba(37,99,235,.35),transparent_50%),radial-gradient(circle_at_30%_80%,rgba(59,130,246,.25),transparent_50%)] border border-black/[0.06] dark:border-white/[0.12] shadow-[0_10px_40px_rgba(0,0,0,.08)]"></div>
-          </div>
-        </div>
-      </section>
+
 
       {/* Contact - Calendly embed (full-bleed) */}
       <section id="contact" className="py-0">
-        <h2 className="sr-only">Book a walkthrough</h2>
+        <h2 className="sr-only">Get started</h2>
         <div className="w-full">
           <CalendlyEmbed url={process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/"} />
         </div>

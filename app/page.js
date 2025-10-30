@@ -51,7 +51,7 @@ export default function Home() {
               Experience your space at 1:1 scale
             </h1>
             <p className="mt-4 text-base sm:text-lg text-white/80 max-w-xl">
-              WalkThru brings your project to life from residential to commercial and anything inbetween.
+              WalkThru brings your project to life from residential to commercial and anything in between.
             </p>
             <div className="mt-8 flex flex-col sm:flex-row gap-3">
               <a

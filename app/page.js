@@ -142,7 +142,7 @@ export default function Home() {
                 <IconClipboard className="mx-auto h-16 w-16 md:h-20 md:w-20 text-[#0d2a55]" aria-hidden="true" />
               <h3 className="mt-5 text-xl font-semibold">Tell us about your project</h3>
               <p className="mt-3 text-[#324568] text-sm leading-relaxed">
-                Schedule a 15-30 minute discovery call so we can learn more about your project. We'll understand your goals, process, and timeline to maximize efficiency.
+                Schedule a 15-30 minute discovery call so we can learn more about your project. We&apos;ll understand your goals, process, and timeline to maximize efficiency.
               </p>
             </div>
 
@@ -150,7 +150,7 @@ export default function Home() {
               <IconFile className="mx-auto h-16 w-16 md:h-20 md:w-20 text-[#0d2a55]" aria-hidden="true" />
               <h3 className="mt-5 text-xl font-semibold">Send Us Your Plans</h3>
               <p className="mt-3 text-[#324568] text-sm leading-relaxed">
-                Upload your blueprints and we'll prepare them for full-scale projection.
+                Upload your blueprints and we&apos;ll prepare them for full-scale projection.
               </p>
             </div>
 

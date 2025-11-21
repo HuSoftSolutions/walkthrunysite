@@ -4,7 +4,6 @@ import Image from "next/image";
 import { useState } from "react";
 import { FaInstagram, FaLinkedin, FaXTwitter, FaYoutube } from "react-icons/fa6";
 
-
 export default function Header() {
   const [open, setOpen] = useState(false);
 
@@ -37,6 +36,13 @@ export default function Header() {
           <a href="#how-it-works" className="hover:text-white text-slate-200 transition-colors">How it works</a>
           {/* <a href="#locations" className="hover:opacity-80 text-white/85">Locations</a> */}
           <a href="#contact" className="hover:text-white text-slate-200 transition-colors">Contact</a>
+          <a
+            href="tel:5188613454"
+            className="inline-flex items-center gap-2 rounded-full border border-white/20 px-3 py-1.5 text-white hover:bg-white/10 transition-colors"
+          >
+            <span className="text-xs uppercase tracking-[0.15em] text-white/70">Call</span>
+            <span className="font-semibold">518.861.3454</span>
+          </a>
           <div className="hidden md:flex items-center gap-3 text-slate-300/80">
             <a href="https://instagram.com/walkthruny" target="_blank" rel="noreferrer" aria-label="Instagram" className="hover:text-white transition-colors">
               <FaInstagram size={18} />
@@ -68,17 +74,20 @@ export default function Header() {
             <a href="#how-it-works" className="py-2" onClick={() => setOpen(false)}>How it works</a>
             {/* <a href="#locations" className="py-2" onClick={() => setOpen(false)}>Locations</a> */}
             <a href="#contact" className="py-2" onClick={() => setOpen(false)}>Contact</a>
+            <a href="tel:5188613454" className="py-2 font-semibold text-white hover:text-white/90" onClick={() => setOpen(false)}>
+              Call 518.861.3454
+            </a>
             <div className="flex items-center gap-4 py-2">
-              <a href="https://instagram.com/" target="_blank" rel="noreferrer" aria-label="Instagram" className="hover:opacity-80">
+              <a href="https://instagram.com/walkthruny" target="_blank" rel="noreferrer" aria-label="Instagram" className="hover:opacity-80">
                 <FaInstagram size={20} />
               </a>
-              <a href="https://x.com/" target="_blank" rel="noreferrer" aria-label="X (Twitter)" className="hover:opacity-80">
+              <a href="https://x.com/walkthruny" target="_blank" rel="noreferrer" aria-label="X (Twitter)" className="hover:opacity-80">
                 <FaXTwitter size={20} />
               </a>
-              <a href="https://www.youtube.com/" target="_blank" rel="noreferrer" aria-label="YouTube" className="hover:opacity-80">
+              <a href="https://www.youtube.com/walkthruny" target="_blank" rel="noreferrer" aria-label="YouTube" className="hover:opacity-80">
                 <FaYoutube size={20} />
               </a>
-              <a href="https://www.linkedin.com/" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="hover:opacity-80">
+              <a href="https://www.linkedin.com/walkthruny" target="_blank" rel="noreferrer" aria-label="LinkedIn" className="hover:opacity-80">
                 <FaLinkedin size={20} />
               </a>
             </div>

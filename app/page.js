@@ -137,12 +137,12 @@ export default function Home() {
       <section id="how-it-works" className="py-16 md:py-24 scroll-mt-16 border-t border-white/5 bg-[#f5f7ff] text-[#041530]">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <h2 className="text-center text-3xl sm:text-4xl font-semibold tracking-tight">How it works</h2>
-          <div className="mt-10 grid gap-12 md:grid-cols-3">
-            <div className="text-center">
-              <IconClipboard className="mx-auto h-16 w-16 md:h-20 md:w-20 text-[#0d2a55]" aria-hidden="true" />
+            <div className="mt-10 grid gap-12 md:grid-cols-3">
+              <div className="text-center">
+                <IconClipboard className="mx-auto h-16 w-16 md:h-20 md:w-20 text-[#0d2a55]" aria-hidden="true" />
               <h3 className="mt-5 text-xl font-semibold">Tell us about your project</h3>
               <p className="mt-3 text-[#324568] text-sm leading-relaxed">
-                Schedule a 15-30 minute discovery call so we can learn more about your project. Well understand your goals, process, and timeline to maximize efficiency.
+                Schedule a 15-30 minute discovery call so we can learn more about your project. We'll understand your goals, process, and timeline to maximize efficiency.
               </p>
             </div>
 
@@ -150,7 +150,7 @@ export default function Home() {
               <IconFile className="mx-auto h-16 w-16 md:h-20 md:w-20 text-[#0d2a55]" aria-hidden="true" />
               <h3 className="mt-5 text-xl font-semibold">Send Us Your Plans</h3>
               <p className="mt-3 text-[#324568] text-sm leading-relaxed">
-                Upload your blueprints and well prepare them for full-scale projection.
+                Upload your blueprints and we'll prepare them for full-scale projection.
               </p>
             </div>
 
@@ -170,6 +170,18 @@ export default function Home() {
       {/* Contact - Calendly embed (full-bleed) */}
       <section id="contact" className="py-0 scroll-mt-16 border-t border-white/5 bg-[#020817] text-white">
         <h2 className="sr-only">Get started</h2>
+        <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8 py-12">
+          <div className="rounded-2xl border border-white/10 bg-white/5 px-6 py-6 sm:px-8 sm:py-8 shadow-[0_24px_60px_rgba(3,12,29,0.45)]">
+            <h2 className="text-2xl sm:text-3xl font-semibold tracking-tight">Talk with our team</h2>
+            <p className="mt-3 text-white/80 text-sm sm:text-base max-w-2xl">
+              Prefer to talk to a person first? Call us at{" "}
+              <a href="tel:5188613454" className="font-semibold text-white hover:text-[#60a5fa] transition-colors">518.861.3454</a>{" "}
+              or email{" "}
+              <a href="mailto:gabe@walkthruny.com" className="font-semibold text-white hover:text-[#60a5fa] transition-colors">gabe@walkthruny.com</a>.
+              You can also book time directly below.
+            </p>
+          </div>
+        </div>
         <div className="w-full">
           <CalendlyEmbed url={process.env.NEXT_PUBLIC_CALENDLY_URL || "https://calendly.com/"} />
         </div>
